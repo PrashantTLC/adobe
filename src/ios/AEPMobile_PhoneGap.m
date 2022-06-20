@@ -137,6 +137,7 @@ static NSString * const EMPTY_ARRAY_STRING = @"[]";
 
 
 - (void)trackAction:(CDVInvokedUrlCommand*)command {
+    NSLog("Track Action is being called up !!");
     [self.commandDelegate runInBackground:^{
         if(!checkArgsWithTypes(command.arguments, @[@[STRING, DICTIONARY], @[STRING, DICTIONARY]])
            || ([command.arguments[0] isKindOfClass:DICTIONARY] && command.arguments[1] != (id)[NSNull null])
@@ -150,9 +151,11 @@ static NSString * const EMPTY_ARRAY_STRING = @"[]";
 
         //allows the ADB.trackAction(cData) call
         if([firstArg isKindOfClass:DICTIONARY]) {
+            NSLog("Track Action with dictionary !!");
              [ACPCore trackState:nil data:firstArg];
         }
         else {
+            NSLog("Track Action without dictionary !!");
              [ACPCore trackState:firstArg data:secondArg];
         }
 
