@@ -152,11 +152,11 @@ static NSString * const EMPTY_ARRAY_STRING = @"[]";
         //allows the ADB.trackAction(cData) call
         if([firstArg isKindOfClass:DICTIONARY]) {
             NSLog("Track Action with dictionary !!");
-             [ACPCore trackState:nil data:firstArg];
+             [ACPCore trackAction:nil data:firstArg];
         }
         else {
             NSLog("Track Action without dictionary !!");
-             [ACPCore trackState:firstArg data:secondArg];
+             [ACPCore trackAction:firstArg data:secondArg];
         }
 
         [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
